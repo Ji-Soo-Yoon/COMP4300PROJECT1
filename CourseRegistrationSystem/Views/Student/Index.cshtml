@@ -1,0 +1,30 @@
+﻿@model IEnumerable<CourseRegistrationSystem.Models.Student>
+
+<h2>Students</h2>
+
+<p>
+    <a class="btn btn-primary" href="/Student/Create">Add New Student</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.FirstName @s.LastName</td>
+                <td>@s.Email</td>
+                <td>
+                    <a href="/Student/Edit/@s.Id">Edit</a> |
+                    <a href="/Student/Delete/@s.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

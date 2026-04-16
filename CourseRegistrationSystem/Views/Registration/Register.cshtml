@@ -1,0 +1,36 @@
+﻿@model CourseRegistrationSystem.Models.Registration
+
+
+<h2>Register for a Course</h2>
+
+<form asp-action="Register" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label>Student</label>
+        <select asp-for="StudentId" class="form-control">
+            <option value="">-- Select Student --</option>
+            @foreach (var s in ViewBag.Students)
+            {
+                <option value="@s.Id">@s.FirstName @s.LastName</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Course</label>
+        <select asp-for="CourseId" class="form-control">
+            <option value="">-- Select Course --</option>
+            @foreach (var c in ViewBag.Courses)
+            {
+                <option value="@c.Id">@c.CourseName</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Register</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

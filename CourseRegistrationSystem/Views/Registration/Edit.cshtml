@@ -1,0 +1,26 @@
+﻿@model CourseRegistrationSystem.Models.Registration
+
+<h2>Edit Registration</h2>
+
+<form asp-action="Edit" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="StudentId" />
+
+    <div class="form-group">
+        <label>Course</label>
+        <select asp-for="CourseId" class="form-control">
+            @foreach (var c in ViewBag.Courses)
+            {
+                <option value="@c.Id">@c.CourseName</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

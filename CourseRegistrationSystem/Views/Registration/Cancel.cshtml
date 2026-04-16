@@ -1,0 +1,16 @@
+﻿@model CourseRegistrationSystem.Models.Registration
+
+<h2>Cancel Registration</h2>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<p>Are you sure you want to cancel this registration?</p>
+
+<form asp-action="Cancel" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Cancel Registration</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
